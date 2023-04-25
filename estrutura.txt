@@ -1,0 +1,13 @@
+user {
+    name,
+    username,
+    password,
+    phone,
+}
+
+product {
+    name,
+    description,
+    user,
+    price
+}
