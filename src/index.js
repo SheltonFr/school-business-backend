@@ -3,7 +3,8 @@ import connectDatabase from "./database/db.js";
 import dotenv from 'dotenv'
 
 
-import userRoute from "./routes/user.route.js"
+import userRoutes from "./routes/user.route.js"
+import authRoutes from './routes/auth.route.js'
 
 dotenv.config() // habilitar o dotenv em todo projecto
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 3000;
 connectDatabase();
 app.use(express.json()); // habilitar processamento de Json no projecto
 
-app.use("/users", userRoute)
+app.use("/users", userRoutes)
+app.use("/auth", authRoutes)
 
 app.listen(port, () => console.log(`Server running on ${port}`))

@@ -51,4 +51,21 @@ const findById = async (req, res) => {
         return res.status(500).send({ message: error.message })
     }
 }
-export default { create, findAll, findById }
+
+const update = async (req, res) => {
+    try {
+        const { name, username, password, phone } = req.body
+        if (!name && !username && !password && !phone) {
+            return res.status(400).send({ message: "Submit at least one field to update" })
+        }
+
+        const { id, user } = req;
+        await userService.update(id, name, username, password, phone);
+
+        res.send({ message: "User updated successfully!" })
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+}
+
+export default { create, findAll, findById, update }
