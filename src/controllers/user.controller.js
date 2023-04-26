@@ -32,4 +32,14 @@ const create = async (req, res) => {
 
 }
 
-export default { create }
+const findAll = async (req, res) => {
+    const users = await userService.findAll();
+
+    if(users.length === 0) {
+        return res.status(400).send({message: "There are not registered users!"})
+    }
+
+    return res.status(200).send({users})
+}
+
+export default { create, findAll }

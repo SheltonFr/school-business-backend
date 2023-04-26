@@ -8,7 +8,7 @@ const connectDatabase = () => {
             process.env.MONGODB_URI,
             { useNewUrlParser: true, useUnifiedTopology: true }
         ).then(() => console.log("Mongodb atlas Connected Successfully!"))
-        .catch((error) => console.log(error))
+        .catch((error) => console.error(error))
 }
 
 export default connectDatabase;

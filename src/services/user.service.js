@@ -4,4 +4,8 @@ const create = (body) => {
     return User.create(body);
 }
 
-export default {create}
+const findAll = ()  => User.find()
+
+const findById = (id) => {}
+
+export default {create, findAll, findById}
