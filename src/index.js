@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 
 import userRoutes from "./routes/user.route.js"
 import authRoutes from './routes/auth.route.js'
+import swaggerRoutes from './routes/swagger.route.cjs'
 
 dotenv.config() // habilitar o dotenv em todo projecto
 
@@ -16,5 +17,6 @@ app.use(express.json()); // habilitar processamento de Json no projecto
 
 app.use("/users", userRoutes)
 app.use("/auth", authRoutes)
+app.use("/doc", swaggerRoutes)
 
 app.listen(port, () => console.log(`Server running on ${port}`))
