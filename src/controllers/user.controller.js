@@ -35,11 +35,20 @@ const create = async (req, res) => {
 const findAll = async (req, res) => {
     const users = await userService.findAll();
 
-    if(users.length === 0) {
-        return res.status(400).send({message: "There are not registered users!"})
+    if (users.length === 0) {
+        return res.status(400).send({ message: "There are not registered users!" })
     }
 
-    return res.status(200).send({users})
+    return res.status(200).send({ users })
 }
 
-export default { create, findAll }
+const findById = async (req, res) => {
+
+    try {
+        const user = req.user;
+        return res.send({ user })
+    } catch (error) {
+        return res.status(500).send({ message: error.message })
+    }
+}
+export default { create, findAll, findById }

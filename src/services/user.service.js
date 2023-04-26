@@ -6,6 +6,6 @@ const create = (body) => {
 
 const findAll = ()  => User.find()
 
-const findById = (id) => {}
+const findById = (id) => User.findById(id)
 
 export default {create, findAll, findById}
